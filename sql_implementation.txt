@@ -1,0 +1,456 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Nov 08, 2010 at 06:59 PM
+-- Server version: 5.1.36
+-- PHP Version: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `cityguide`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE IF NOT EXISTS `category` (
+  `category_id` varchar(10) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`category_id`),
+  KEY `category_id` (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`category_id`, `name`) VALUES
+('cat1', 'Adventure'),
+('cat10', 'Sea Beaches'),
+('cat11', 'Wildlife'),
+('cat12', 'Miscellaneous'),
+('cat2', 'Art'),
+('cat3', 'Cultural'),
+('cat4', 'Educational'),
+('cat5', 'Fair & Festival'),
+('cat6', 'Heritage / Historic Monuments'),
+('cat7', 'Hill Station'),
+('cat8', 'Honeymoon'),
+('cat9', 'Health');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `city`
+--
+
+CREATE TABLE IF NOT EXISTS `city` (
+  `city_id` varchar(6) NOT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `state` varchar(20) DEFAULT NULL,
+  `zone` varchar(20) DEFAULT NULL,
+  `country` varchar(20) DEFAULT NULL,
+  `image` varchar(50) NOT NULL,
+  `weather` varchar(50) DEFAULT NULL,
+  `best_time_to_visit` varchar(50) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`city_id`),
+  KEY `city_id` (`city_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`city_id`, `name`, `state`, `zone`, `country`, `image`, `weather`, `best_time_to_visit`, `description`) VALUES
+('c1', 'Delhi', 'Delhi', 'North India', 'India', 'images/city/delhi.jpg', ' humid subtropical climate', 'February to April', 'All the major Indian festivals are celebrated here with full vigor. Color, gaiety, enthusiasm, feasts and a variety of prayers and rituals characterize festivals here.  Many diverse cultures, traditions and festivals form a part of the metropolitan city of New Delhi. Every celebration marks for a big preparation and vigor at Delhi roads.  All festivals irrespective of religion are celebrated equally at Delhi. You can actually enjoy the spirit of unity in diversity while your tour to Delhi.  Prin'),
+('c10', 'Nainital', 'Uttaranchal', 'North-India', 'India', 'Images/city/nainital.jpg', 'tropical type. 4C in winter to 42C during summer.', 'May-August', 'Nainital is situated in the lap of Uttaranchal. Its mainly known for its pleasant weather and the Corbett National park. Its a perfect wildlife destination.'),
+('c11', 'Balaghat', 'Madhya Pradesh', 'Central-India', 'India', 'Images/city/balaghat.jpg', 'tropical rain forest. 11C in winter to 40C in summ', 'Jan-May', 'Balaghat is known for the Kanha National park . Balaghat gets a lot of rain fall in monsoon and thus the kanha national park is closed from june to november.'),
+('c2', 'Kolkata', 'West Bengal', 'East India', 'India', 'images/city/kolkata.jpg', 'Tropical.  maximum t', 'October-march', 'Kolkata is the capital of the Indian state of West Bengal. Kolkata is the cultural capital of India and the commercial capital of Eastern India.'),
+('c3', 'Mumbai', 'Maharashtra', 'West India', 'India', 'images/city/mumbai.jpg', '22-33C (Summer) ; 29-19C (Winter)', 'Nov-Feb', 'The very mention of Mumbai sets the Indian eyes to sparkle. Can there be a better appellation than ''City of Dreams'' for a place where ordinary people can become stars overnight. Studded with the Indian Hollywood - Bollywood, India''s ''Little Paris'' - the fashion industry that unabashedly boasts of the world''s largest textile produce, Indian cricketers, India''s largest Stock Exchange at Bandra and Asia''s oldest at Dalaal Street, the racing maniacs'' Mahalaxmi Race Course - Mumbai aka Bombay is the place to be. Welcome to a city which might pause at times for some breath but never sleeps.'),
+('c4', 'Chennai', 'Tamil Nadu', 'South India', 'India', 'images/city/chennai.jpg', '21-37C (Sum); 20-30C (Win)', 'Winters (Nov-Feb)', 'Chennai, the Capital of Tamil Nadu and the fourth largest metro in India, is a starking 368-year-old city that has wrapped up in its ambit much more than history, a political race-course, industrial marvels, a phenomenal automobile industry (also referred to as the Detroit of South Asia). The erstwhile Madras, was rechristened Chennai, as a part of the Indianizing spree of the Government. The tongue-twisting local language sounds interesting to the ears and the lovely oiled braids of the local womenfolk decorated with strings of flowers exude, both, an aura of mysticism and beauty, one tends to remember for quiet sometime long after.'),
+('c5', 'Jaipur', 'Rajasthan', 'North-West', 'India', 'images/city/jaipur.jpg', '26-40C (Sum); 8-2C (Win) ', 'Oct - Feb', 'The land of golden sands, Rajasthan has its Capital at a city dyed pink in 1876, by Maharaja Man Singh II (Sawai Jai Singh) apparently to impress the Prince of Wales. This is Jaipur, fondly nicknamed the Pink City, famed for its plethora of palaces, a shopaholics apple-pie for its beatific indigenous products and its capacity to hypnotize the visitors into believing - here is another world.'),
+('c6', 'Shimla', 'Himachal Pradesh', 'North India', 'India', 'images/city/shimla.jpg', '-4 to18C (Win); Upto 30C (Sum) ', 'April to October', 'The seven picturesque hills of Shimla are in Southern Himachal, 117 km from Chandigarh. This once favorite summer retreat of the erstwhile Britons have so changed over the years that if the souls of its founders are to be come back for a dekko, they would either be saddened or gladdened to see it transform into the poshest of tourist magnets amongst the Himalayan hill-stations. The Mall street is lined with branded showrooms, the city is studded with hep resorts and out of every seven heads, one is a tourist.'),
+('c7', 'Goa', 'Goa', 'West-India', 'India', 'Images/city/goa.jpg', 'Sea- climate  3-11C( Win), 25-45', 'may-october', 'Goa is known for its beautiful beaches and outstanding art works of its churches.'),
+('c8', 'Rishikesh', 'U P', 'North-India', 'India', 'Images/city/rishikesh.jpg', 'temperate,6C to 38C', 'Oct-March', 'Rishikesh is the city of the Ganges and ancient temples. Its also known for its river rafting.Its also known for lakshman jhula.'),
+('c9', 'Laddakh', 'J&K', 'North-India', 'India', 'Images/city/laddakh.jpg', '-3to30(Sum) and -20 to 15 (Win)', 'Jun- Sept', 'Laddakh is known for its beatiful ice caped mountains and budhist monestries.Its also known for its trekking sites.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events_of_interest`
+--
+
+CREATE TABLE IF NOT EXISTS `events_of_interest` (
+  `eoi_id` varchar(8) NOT NULL,
+  `city_id` varchar(6) DEFAULT NULL,
+  `category_id` varchar(6) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`eoi_id`),
+  KEY `eoi_id` (`eoi_id`),
+  KEY `city_id` (`city_id`),
+  KEY `city_id_2` (`city_id`),
+  KEY `category_id` (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `events_of_interest`
+--
+
+INSERT INTO `events_of_interest` (`eoi_id`, `city_id`, `category_id`, `name`, `start_date`, `end_date`, `image`, `description`) VALUES
+('e1', 'c1', 'cat4', 'Food Fair New Delhi', '2010-10-21', '2010-10-28', 'images/event_of_interest/food fairdelhi.jpg', 'Food Fair is the India''s one of the largest food and beverage trade exhibition The Food fair is the best opportunity for the exhibitors to display their original, inspiring products and services among the thousands of buyers. The show is being organized by Indian Agribusiness Systems Pvt. Ltd, and will be held at New Delhi Shangri-la Hotel from Oct 21 to 24, 2010'),
+('e10', 'c6', 'cat3', 'Phool mahotsava', '2010-01-01', '2010-01-09', 'images/event_of_interest/phool.jpg', 'Get wonderfull chance to have a closer look at  the Himachal culture and enjoy.'),
+('e2', 'c1', 'cat4', ' Roads & Highways Ex', '2010-10-28', '2010-11-05', 'images/event_of_interest/roadfair.jpg', 'Roads & Highways Expo is the first ever exhibition in India on roads & highways is expected to give a tremendous push to the road. It will be held at Pragati Maidan, New Delhi, India & Organized by Media Expositions & Events. It will showcase Asphalt Mixing Plants, Material Testing Equipment, Asphalt Paving, Mixers, Bar Cutting/ Bending machine, Pavers, Batch / Mixing Control Equipment, Pre Stressing Systems for Bridges & Flyover'),
+('e3', 'c1', 'cat3', ' Virasat 2010', '2010-09-01', '2010-11-03', 'images/event_of_interest/virasat-2010.jpg', 'Virasat 2010. Organised by Spic Macay. Celebrating its 33rd year, invites you to the inauguration of Virasat 2010, A festival of Classical Music and Dance, Folk, Theatre, Film Classics, Yoga, Workshop,... '),
+('e4', 'c1', 'cat3', ' Akhyan', '2010-10-20', '2010-11-20', 'images/event_of_interest/akhyan-puppets.jpg', 'Akhyan - An Exhibition of Masks, Puppets & Picture Showmen Traditions of India. As part of Akhyaan - Cultural Programmes'),
+('e5', 'c2', 'cat5', 'Durga Puja', '2010-10-15', '2010-10-25', 'images/event_of_interest/durgapuja.jpg', 'Durgapuja is one of the very important festival celebrated in Bengal. The main attractions of the Durga puja are the pandals and Idols of Goddess Durga.'),
+('e6', 'c3', 'cat2', 'M.F. Hussain paintin', '2011-10-30', '2011-11-30', 'images/event_of_interest/mf.jpg', 'World known paintings of painter M.F hussain is on display at  Niket Museum on 121, Rama Marg.'),
+('e7', 'c5', 'cat4', 'Book Fair', '2010-11-24', '2010-12-24', 'images/event_of_interest/bookfair.jpg', 'Visit for world known books and also get the opportunity to meet world known authors. Venue is at Ramanand museum.'),
+('e8', 'c5', 'cat5', 'Animal fair.', '2010-11-09', '2010-11-15', 'images/event_of_interest/cattlefair.jpg', 'Get the flavor of traditional Indian cuture.'),
+('e9', 'c7', 'cat12', 'Filmfare function', '2010-12-22', '2011-01-02', 'images/event_of_interest/filmfare.jpg', 'Get opprtunity to meet great actors and actresses of bollywood and see them performing live.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `guide`
+--
+
+CREATE TABLE IF NOT EXISTS `guide` (
+  `guide_id` varchar(6) NOT NULL,
+  `city_id` varchar(6) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `gender` varchar(6) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
+  `address` varchar(500) DEFAULT NULL,
+  `phone` int(20) DEFAULT NULL,
+  PRIMARY KEY (`guide_id`),
+  KEY `guide_id` (`guide_id`),
+  KEY `city_id` (`city_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `guide`
+--
+
+INSERT INTO `guide` (`guide_id`, `city_id`, `name`, `gender`, `email`, `address`, `phone`) VALUES
+('g1', 'c1', 'Purakeshwar', 'M', 'purak1@yahoo.com', 'Hauz Khas, Delhi', 987986542),
+('g10', 'c9', 'Kamlesh Awadhia', 'M', 'kamlesh@iitd.ac.in', 'G-56, Vir nagar , kholi road', 901127654),
+('g11', 'c10', 'Naina devi', 'F ', 'naina@ashishprasad,ac,in', 'S 9, Maharaja colony, shivpuram nagar', 988776775),
+('g12', 'c11', 'Jumman Ahmed', 'm', 'jumman@gmail.com', 'C8, Humjoli coloni , virat nagar', 2147483647),
+('g2', 'c1', 'Tarak Lal Mehto', 'M', 'taraklal@gmail.com', 'Fatehpur, Old Delhi', 798564321),
+('g3', 'c2', 'Chendeshar Ghosh', 'M', 'chande@gmail.com', 'Howrah bridge, Q24, Kolakata', 914748364),
+('g4', 'c3', 'P.V. Rao', 'F', 'rao@hotmail.com', 'C-2, Bela road, shiv garh colony', 900876560),
+('g5', 'c4', 'Pravesh kumar', 'M', 'pravesh@iitrpr.ac.in', 'Gali no- 8, daya nagar colony, Anad society', 914748364),
+('g6', 'c5', 'Archana', 'F', 'archana@gmail.com', 'W-34, City road, Werb colony', 921474836),
+('g7', 'c6', 'Amitesh yadav', 'M', 'amit@gmail.com', 'Vir nagar, Gorakh pur colony , chhapra road', 900078654),
+('g8', 'c7', 'Bhawani', 'F', 'bhawani@hotmail.com', 'R67, Werkha nagar, Jaspal road,', 911123476),
+('g9', 'c8', 'Gayatri joshi', 'F', 'gayatri@yahoo.com', 'Piyush Nagart,pratapgarh', 900077658);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hotel`
+--
+
+CREATE TABLE IF NOT EXISTS `hotel` (
+  `hotel_id` varchar(10) NOT NULL,
+  `city_id` varchar(10) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `resort` tinyint(1) DEFAULT NULL,
+  `star` int(1) DEFAULT NULL,
+  `image` varchar(50) DEFAULT NULL,
+  `rate` int(6) DEFAULT NULL,
+  `address` varchar(500) DEFAULT NULL,
+  `phone` int(20) DEFAULT NULL,
+  PRIMARY KEY (`hotel_id`),
+  KEY `hotel_id` (`hotel_id`),
+  KEY `city_id` (`city_id`),
+  KEY `city_id_2` (`city_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hotel`
+--
+
+INSERT INTO `hotel` (`hotel_id`, `city_id`, `name`, `resort`, `star`, `image`, `rate`, `address`, `phone`) VALUES
+('h1', 'c1', 'Le Meridien', 1, 5, 'images/hotel/LeMeridiandelhi.jpg', 25000, 'two kilometers from Rashtrapati Bhawan, New Delhi', 23710101),
+('h10', 'c5', ' Hotel Paradise, Jaipur', 1, 4, 'images/hotel/Paradise_Jaipur.jpg', 7500, 'heart of Jaipur, around 4 kilometres away from the railway station and 16 kilometres away from the airport.', 2309876),
+('h11', 'c6', 'Star View', 0, 2, 'images/hotel/hotel1.jpg', 2500, 'Bali road, Anandi complex', 2147483647),
+('h12', 'c7', 'Glorius', 1, 5, 'images/hotel/hotel2.jpg', 7000, 'Angad road, BhawaniPur area,', NULL),
+('h13', 'c8', 'Hotel Sahil', 1, 4, 'images/hotel/hotel3.jpg', 7600, 'Balbirpur nagar', 2147483647),
+('h14', 'c9', 'Prashant Palace', 1, 5, 'images/hotel/hotel2.jpg', 8500, 'Gorakhdham colony, Shivampuri', 2147483647),
+('h15', 'c10', 'Nainital palace', 1, 3, 'images/hotel/hotel4.jpg', 4000, 'Crossing road, Jamuna pur', 2147483647),
+('h16', 'c11', 'Wildlife Resort', 1, 5, 'images/hotel/hotel1.jpg', 3000, 'Upper hill area, Balaghat', 2147483647),
+('h2', 'c1', 'Hotel Hans', 1, 5, 'images/hotel/hotelhans.jpg', 23000, 'New Delhi', 237543),
+('h3', 'c3', 'Le Royal Meridien', 1, 5, 'images/hotel/Le_Royal.jpg', 13500, 'Andheri East Mumbai ', 2345763),
+('h4', 'c3', 'Four Seasons Hotel Worli', 1, 5, 'images/hotel/fourseasonhotel_mumbai.jpg', 15000, 'Saki Naka Junction,Andheri East Mumbai ', 2345762),
+('h5', 'c2', 'The Peerless Inn, Kolkata', 1, 5, 'images/hotel/thepeerlessinn_kolkata.jpg', 13500, 'Near Esplanade Kolkata ', 2345760),
+('h6', 'c2', 'Hyatt Regency, Kolkata', 1, 5, 'images/hotel/Hyatt_Regency_Kolkata.jpg', 15000, 'Salt Lake Kolkata ', 2345769),
+('h7', 'c4', ' Trident Chennai', 1, 5, 'images/hotel/Trident_Chennai.jpg', 8250, 'Near Chennai Airport Chennai ', 2345762),
+('h8', 'c4', 'Taj Coromandel, Chennai', 1, 5, 'images/hotel/TajCoromandel_Chennai.jpg', 12000, 'Mahatma Gandhi Road Chennai ', 2645760),
+('h9', 'c5', ' Super Saver 5 Star Hotel, Jaipur', 1, 5, 'images/hotel/Super Saver 5 Star Hotel-Jaipur.jpg', 12342, 'just aout 30 minutes away from the airport', 2545762);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `how_to_reach`
+--
+
+CREATE TABLE IF NOT EXISTS `how_to_reach` (
+  `city_id` varchar(6) NOT NULL DEFAULT '',
+  `railway_station` varchar(100) DEFAULT NULL,
+  `airport` varchar(100) DEFAULT NULL,
+  `roadways` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`city_id`),
+  KEY `city_id` (`city_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `how_to_reach`
+--
+
+INSERT INTO `how_to_reach` (`city_id`, `railway_station`, `airport`, `roadways`) VALUES
+('c1', 'Delhi(DEL),  New Delhi(NDLS)', 'IGI Domestic and International Airport', 'The Inter State Bus Terminus (ISBT) is located at Kashmiri Gate, Sarai Kale-Khan and Anand Vihar. Delhi Transport Corporation and Road Transport Corporations of the neighboring States provide frequent bus services through Air Conditioned, Deluxe and Ordinary Coaches. Buses from all the major places in Uttar Pradesh, Punjab, Haryana, Himachal Pradesh, Madhya Pradesh and Rajasthan are available for getting to Delhi.'),
+('c10', 'Ramnagar is the nearest railhead after which road transport has to be availed.', 'Phoolbagh, Pantnagar at a distance of 50 kms, is the nearest airport.', 'Regular bus services available from Ramnagar as well as Pantnagar'),
+('c11', 'Jabalpur at 169-kms is the convenient rail head to visit Kanha. ', 'Nagpur at 266-kms is the nearest Airport to visit Kanha National Park .', 'Regular bus services available from Jabalpur as well as Nasik.'),
+('c2', 'Howrah and  Sealdah', 'NSCB Domestic Airport, Dum-Dum International Airport', 'The State Transport Bus Stand is in Esplanade has CSTC (Kolkata State Transport Corporation), NBSTC (North Bengal State Transport Corporation) and SBSTC (South Bengal State Transport Corporation) buses connecting Kolkata to various destinations in West Bengal and other states. There is also a bus to Phuntshiling (Bhutan) via Siliguri. NBSTC connects Kolkata with Alipurduar, Babughat, Berhampur, Jalpaiguri, Jorai, Krishnanagar, Siliguri, Suri and Coochbehar and so on.'),
+('c3', 'Victoria Terminal, now renamed Chattrapati Shivaji Terminal. Bombay Central and Dadar', 'Chhatrapati Shivaji International Airport,  domestic terminal at Santa Cruz', 'Mumbai is conveniently connected to all major Indian cities and to those in its vicinity. State managed and private carriers ply various buses to and from Mumbai. Driving from the Indian capital, Delhi (1407 km) is not advisable. But incase you have landed anywhere nearby, you can hit the roads. NH-3 connects Agra-Gwalior-Shivpuri-Indore-Dhule-Nasik-Thani-Mumbai(Bombay). While NH-8 has Delhi-Jaipur-Ajmer-Udaipur-Ahmedabad-Vadodara-Mumbai.'),
+('c4', 'Chennai Central (Georgetown), Egmore Railway station', 'Anna International Terminal and Kamaraj Domestic Terminal Airport', 'State Transport has regular buses interstate buses from the newly opened Chennai Mofussil Bus Terminal at Jawaharlal Nehru Salai, Koyembedu. It is claimed to be the largest bus station in Asia. Private cars, luxury coaches can also be hired.'),
+('c5', 'Jaipur Railway Station', 'Sanganer 15 km (25 min) south of the city center', 'Jaipur, being part of the Golden Travel Circuit of India (that includes Delhi-Agra-Jaipur) has excellent roads and a well-networked inter-state bus terminus called the Sindhi Camp bus stand. Regular AC Volvo buses for Delhi (about 12 departures a day) will drop you off at Bikaner House, near India Gate. Drive the NH 8 to reach Jaipur in only 4 hours from Delhi.'),
+('c6', 'Kalka (90 kms), Chandigarh (117 kms)', 'Jubbarhati (23 km)', ':Deluxe coaches and Volvo buses leave from Delhi to Shimla via Chandigarh can be boarded at Delhi''s ISBT terminus. Travel time is about 7-8 hours. Or you can also travel to Chandigarh (on National Highway no 22) from Delhi and from there hire a taxi for Shimla. On either end of the Victory Tunnel in Shimla are the two inter-state and intra-state bus terminals.'),
+('c7', 'Goa has its own railway stationin its capital Panji. other nearest station is Mumbai.', 'Panji International airport', '78km from Mumbai'),
+('c8', '48 km from haridwar , Other near stations are Mathura and Saharanpur', 'About 257 km from Delhi,', 'Well connected from various cities of UP including Haridwar(48km)'),
+('c9', 'Jammu is the nearest airport, other being the Srinagar airport', 'Jammu (nearest railway station),', 'Easily reachable from Jammu as well as Srinagar');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restaurant`
+--
+
+CREATE TABLE IF NOT EXISTS `restaurant` (
+  `restaurant_id` varchar(6) NOT NULL,
+  `city_id` varchar(6) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `cuisine` varchar(40) DEFAULT NULL,
+  `speciality` varchar(20) DEFAULT NULL,
+  `address` varchar(500) DEFAULT NULL,
+  `phone` int(20) DEFAULT NULL,
+  PRIMARY KEY (`restaurant_id`),
+  KEY `restaurant_id` (`restaurant_id`),
+  KEY `city_id` (`city_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `restaurant`
+--
+
+INSERT INTO `restaurant` (`restaurant_id`, `city_id`, `name`, `cuisine`, `speciality`, `address`, `phone`) VALUES
+('r1', 'c1', 'Chocolate World', 'Indian, Continental', 'Chocolates', 'Kamala Nagar, Delhi', 237533),
+('r10', 'c9', 'Kashmir food center', 'Chines, Indian, Italian', 'momos', 'st. joseph road, Leh', 976655443),
+('r11', 'c10', 'Corbett foodpoint', 'Italian,chinese,continental', 'Momos,noodles', 'ramanagar marketing complex, Nainital', 987654312),
+('r12', 'c11', 'Kanha plaza', 'south Indian,chinese', 'Dosa, badapav', 'shivpuri complex,balaghat', 987654567),
+('r13', 'c3', 'Nik bakers', 'Indian', 'pav bhaji', 'Andheri east, Mumbai', 912345654),
+('r14', 'c4', 'Chennai Cuisine', 'South Indian', 'Idli, dosa', 'chinnaswamy margam, chennai', 945678765),
+('r2', 'c1', 'McDonalds', 'Italian, American', 'Pizza, Burgers', 'Cannought Place', 238983),
+('r3', 'c2', 'Sugar and spice', 'continental, chinese', 'Haka Noodles', 'kali ghat', 2147483647),
+('r4', 'c3', 'Taj', 'Indian, continental, mexican.Italian', 'tandoori chicken', 'nariman point', 2147483647),
+('r5', 'c4', 'South point', 'south Indian', 'Masala dosa', 'venktesh marg, chennai', 2147483647),
+('r6', 'c5', 'Rjasthan Pride', 'Indian', 'Rajsthani thali', 'sanganer, jaipur', 922234433),
+('r7', 'c6', 'Mountain Food Plaza', 'Indian, Chinese', 'noodles', 'mall road, shimla', 933342221),
+('r8', 'c7', 'Sea Currry', 'continental', 'fish', 'gibson road', 2147483647),
+('r9', 'c8', 'hotel Chotiwala', 'Indian', 'Indian thali', 'lkshman jhoola marg, rishikesh', 97756644);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `temp`
+--
+CREATE TABLE IF NOT EXISTS `temp` (
+`city_id` varchar(6)
+,`rating` decimal(14,4)
+);
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tourist`
+--
+
+CREATE TABLE IF NOT EXISTS `tourist` (
+  `tourist_id` varchar(6) NOT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `gender` varchar(6) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
+  `address` varchar(500) DEFAULT NULL,
+  `phone` int(20) DEFAULT NULL,
+  PRIMARY KEY (`tourist_id`),
+  KEY `tourist_id` (`tourist_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tourist`
+--
+
+INSERT INTO `tourist` (`tourist_id`, `name`, `gender`, `email`, `address`, `phone`) VALUES
+('t1', 'Alan Smith', 'M', 'smith1_alan@yahoo.com', 'London, UK', 3459871),
+('t10', 'huen tsang', 'M', 'huen@chinamail.com', 'linto street, bejeing, China', 432345677),
+('t2', 'Nicholas', 'M', 'nichol123321@gmail.com', 'New York, USA', 34523132),
+('t3', 'Birendra Pratap', 'M', 'birendra@gmail', 'Itanagar, Arunachal Pradesh', 2147483647),
+('t4', 'James Longbottom', 'M', 'longbottomj@yahoo.co.uk', '221B, Baker street ,London', 1233224456),
+('t5', 'Mohd. Ismail', 'M', 'ismail@israeil.com', 'ramna street, Israil', 43322553),
+('t6', 'Jenifer Goldy', 'F', 'goldyj@yahoo.co.uk', 'Brixton road, London,UK', 123543543),
+('t7', 'Nevil Longbottom', 'M', 'nevila@gmail.com', 'Stuwart street, Chicago,USA', 2147483647),
+('t8', 'Ron Wijli', 'M', 'ron@gmail.com', 'stalwart mart complex, Newyork city', 551234567),
+('t9', 'Ginni Wijli', 'F', 'ginni@gmail.com', 'presenter housing colony, Los angeles,USA', 2147483647);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tourist_comment`
+--
+
+CREATE TABLE IF NOT EXISTS `tourist_comment` (
+  `tc_id` varchar(50) NOT NULL,
+  `city_id` varchar(6) DEFAULT NULL,
+  `tourist_id` varchar(6) DEFAULT NULL,
+  `time_of_visit` varchar(100) DEFAULT NULL,
+  `expected_expenditure` int(10) DEFAULT NULL,
+  `rating` int(2) DEFAULT NULL,
+  `comments` varchar(500) DEFAULT NULL,
+  `suggestions` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`tc_id`),
+  UNIQUE KEY `tc_id_5` (`tc_id`),
+  UNIQUE KEY `tc_id_6` (`tc_id`),
+  UNIQUE KEY `tc_id_8` (`tc_id`),
+  KEY `tc_id` (`tc_id`),
+  KEY `city_id` (`city_id`),
+  KEY `tourist_id` (`tourist_id`),
+  KEY `tc_id_2` (`tc_id`),
+  KEY `tc_id_3` (`tc_id`),
+  KEY `tc_id_4` (`tc_id`),
+  KEY `tc_id_7` (`tc_id`),
+  KEY `tc_id_9` (`tc_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tourist_comment`
+--
+
+INSERT INTO `tourist_comment` (`tc_id`, `city_id`, `tourist_id`, `time_of_visit`, `expected_expenditure`, `rating`, `comments`, `suggestions`) VALUES
+('tc1', 'c1', 't1', 'October', 28000, 8, 'Great place to visit', 'Visit during October. Must visit Akshardham, Red Fort.'),
+('tc10', 'c1', 't9', 'March', 30000, 7, 'Delhi is a mixture of various cultures and being the capital city of India, it provids you lots of museums to visit,', 'Try paranthas of oaratha wali gali near chandni chowk.'),
+('tc2', 'c2', 't2', 'November', 31000, 7, 'City of Joy. Grand Durga Puja Cellebration.', 'Visit during October. Travel in steamer, metro, tram. Enjoy the joyous life of Kolkata.'),
+('tc3', 'c3', 't1', 'october', 30000, 9, 'Mumbai is a great place to see. Every tourist should visit Mumbai atleast once', 'Must eat pav bhaji at chaupati'),
+('tc4', 'c4', 't5', 'march', 20000, 8, 'Chennai is a very traditional and beutiful place. Its sea beach is very nice.', 'Must eat dosa and idli served on banana leaves at any road side hotel.'),
+('tc5', 'c6', 't8', 'August', 25000, 9, 'Mumbai is a beautiful place to see. Every tourist should visit Shimla atleast once.Its ice caped mountains are very beutiful and provide great view.', 'Don''t forget to take sweaters with you!'),
+('tc6', 'c7', 't10', 'October', 35000, 10, 'Wonderful sea beach, great food, Beautiful churches and tasty wine are integral parts of Goa. One should visit Goa with his friends and family.', 'Don''t forget to try Mary''s Icecream cone at Hotel Panji Sitara.'),
+('tc7', 'c4', 't4', 'January', 22000, 8, 'Wonderful food and good natured people of Chennai make you feel at home.', 'Visit cricket stadium.'),
+('tc8', 'c6', 't8', 'July', 28000, 9, 'Superb place to visit. One should visit Shimla with his friends and families.', 'Take warm clothes with you.'),
+('tc9', 'c7', 't1', 'october', 40000, 9, 'Goa is the land of wonder beaches and great wines. Every time I visit, I find something new for me there.', 'You can visit Lakshadeep islands from Goa by taking ship.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tourist_spot`
+--
+
+CREATE TABLE IF NOT EXISTS `tourist_spot` (
+  `ts_id` varchar(6) NOT NULL,
+  `city_id` varchar(6) DEFAULT NULL,
+  `category_id` varchar(6) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`ts_id`),
+  KEY `city_id` (`city_id`),
+  KEY `category_id` (`category_id`),
+  KEY `ts_id` (`ts_id`),
+  KEY `city_id_2` (`city_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tourist_spot`
+--
+
+INSERT INTO `tourist_spot` (`ts_id`, `city_id`, `category_id`, `name`, `image`, `description`) VALUES
+('ts1', 'c1', 'cat3', 'Red Fort', 'images/tourist_spot/Redfort.JPG', 'Red Fort showcases the very high level of art form and ornamental work. The art work in the Fort is a synthesis of Persian, European and Indian art which resulted in the development of unique Shahjahani style which is very rich in form, expression and colour. Red Fort, Delhi is one of the important building complexes of India which encapsulates a long period of Indian history and its arts. Its significance has transcended time and space. It is relevant as a symbol of architectural brilliance and'),
+('ts10', 'c10', 'cat11', 'Corbett NationalPark', 'images/tourist_spot/corbett4.jpg', 'Corbett national park is known for its tiger reserve. There are facilities for forest cottage and safari Jeep for the tourists. '),
+('ts11', 'c11', 'cat11', 'Kanha National Park', 'images/tourist_spot/kanha_national_park3.jpg', 'Kanha national park is known for its tiger reserve. There are facilities for forest cottage and safari Jeep for the tourists.'),
+('ts12', 'c8', 'cat1', 'River rafting', 'images/tourist_spot/rafting3.jpg', 'Rishikesh has one of the rafting points of India. It provides great rafting opportunities in the Ganga river.'),
+('ts13', 'c9', 'cat1', 'trekking', 'images/tourist_spot/trekking1.jpg', 'Trekking experience in Himalayas is one of the few things one should never miss in life.'),
+('ts2', 'c1', 'cat6', 'Akshardham Temple', 'images/tourist_spot/Akshardham_Delhi.jpg', ', the complex displays centuries of traditional Indian and Hindu culture, spirituality, and architecture. The building was inspired and moderated by Pramukh Swami Maharaj, the spiritual head of the Bochasanwasi Shri Akshar Purushottam Swaminarayan Sanstha, whose 3,000 volunteers helped 7,000 artisans construct Akshardham.'),
+('ts3', 'c2', 'cat3', 'Kalighat temple', 'images/tourist_spot/kalighat.jpg', 'Its a historic temple of goddess Durga. You can visit Kalighat temple by taking steamer from Howrah'),
+('ts4', 'c2', 'cat6', 'Victoria Memorial', 'images/tourist_spot/victoria_memorial.jpg', 'Made during British rule, Victoria memorial is a wonderful place to visit. It has a rich museum.'),
+('ts5', 'c3', 'cat10', 'Nariman point', 'images/tourist_spot/narimanpoint.jpg', 'The sun set view of Nariman point is very pleasant. On one side there is sea and on the other side are the sky scrappers.'),
+('ts6', 'c3', 'cat10', 'Juhu', 'images/tourist_spot/juhu.jpg', 'Juhu beach of Mumbai gets a lot of tourists through out the year. Pav bhaji at the beach is very tasty.'),
+('ts7', 'c7', 'cat10', 'Marine drive', 'images/tourist_spot/marinedrive.jpg', 'It provides wonderful an breath taking view of sunset. Lots of tourists visit the beach every year.'),
+('ts8', 'c5', 'cat6', 'Hawa Mahal', 'images/tourist_spot/hawamahal.jpg', 'Hawa Mahal is one of the most important historical monuments of India. Its situated in the heart of Jaipur.'),
+('ts9', 'c6', 'cat7', 'Ice point', 'images/tourist_spot/icepoint.jpg', 'The sunset view from icepoint is spectacular. In winters ,it is permanently covered with ice.');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `temp`
+--
+DROP TABLE IF EXISTS `temp`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `temp` AS select `tourist_comment`.`city_id` AS `city_id`,avg(`tourist_comment`.`rating`) AS `rating` from `tourist_comment` group by `tourist_comment`.`city_id` having (count(0) > 1);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `events_of_interest`
+--
+ALTER TABLE `events_of_interest`
+  ADD CONSTRAINT `events_of_interest_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `events_of_interest_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `guide`
+--
+ALTER TABLE `guide`
+  ADD CONSTRAINT `guide_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `hotel`
+--
+ALTER TABLE `hotel`
+  ADD CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `how_to_reach`
+--
+ALTER TABLE `how_to_reach`
+  ADD CONSTRAINT `how_to_reach_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `restaurant`
+--
+ALTER TABLE `restaurant`
+  ADD CONSTRAINT `restaurant_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tourist_comment`
+--
+ALTER TABLE `tourist_comment`
+  ADD CONSTRAINT `tourist_comment_ibfk_3` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tourist_comment_ibfk_4` FOREIGN KEY (`tourist_id`) REFERENCES `tourist` (`tourist_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tourist_spot`
+--
+ALTER TABLE `tourist_spot`
+  ADD CONSTRAINT `tourist_spot_ibfk_3` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `tourist_spot_ibfk_4` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE SET NULL ON UPDATE CASCADE;
